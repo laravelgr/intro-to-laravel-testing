@@ -26,3 +26,5 @@ dependencies:
 test:
   override:
    - vendor/bin/phpunit -d memory_limit=1024M --coverage-clover build/logs/clover.xml
+   # Send code coverage to code climate
+   -  CODECLIMATE_REPO_TOKEN=1e095fa53587f4fa1bf44db99b4ddb085696cba6364a6db7795f00e82a8fc3cc ./vendor/bin/test-reporter
