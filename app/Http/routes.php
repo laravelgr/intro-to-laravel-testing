@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Routing\ResponseFactory;
+
+Route::post('/fruit', function(){
+    $responseFactory = app(ResponseFactory::class);
+    return $responseFactory->redirectToRoute('get-fruit', 1, 201);
 });
+
+Route::get('/fruit/{id}', ['as' => 'get-fruit', function(){
+    $responseFactory = app(ResponseFactory::class);
+    return $responseFactory->json([
+        'id'   => 1,
+        'name' => 'Orange'
+    ]);
+}]);

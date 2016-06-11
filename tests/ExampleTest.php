@@ -6,14 +6,23 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
-    public function testBasicExample()
+    public function testRegisterFruit()
     {
-        $this->visit('/')
-             ->see('Laravel 5');
+        $this->json('POST', '/fruit', ['name' => 'Orange']);
+        $this->assertRedirectedTo('/fruit/1');
+        $this->assertResponseStatus(201);
+    }
+
+    public function testGetFruit()
+    {
+        $this->json('GET', 'fruit/1');
+        $this->seeJson(['id' => 1, 'name' => 'Orange']);
+        $this->assertResponseStatus(200);
+    }
+
+    private function debugResponse()
+    {
+        file_put_contents(__DIR__.'/response.html', $this->response->content());
+        die;
     }
 }
