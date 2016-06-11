@@ -13,11 +13,19 @@ class ExampleTest extends TestCase
         $this->assertResponseStatus(201);
     }
 
-    public function testGetFruit()
+    /**
+     * @test
+     */
+    public function getFruit()
     {
         $this->json('GET', 'fruit/1');
         $this->seeJson(['id' => 1, 'name' => 'Orange']);
         $this->assertResponseStatus(200);
+    }
+
+    public function thisIsNotATest()
+    {
+        dd('died');
     }
 
     private function debugResponse()
