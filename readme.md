@@ -1,9 +1,6 @@
-# Laravel App Basis
+# Testing in laravel demo app
 
-This is a bootstrap project containing all the steps I do before starting a new project. 
-The goal is to speed this process up and ultimately automate it.
-
-The laravel version used is v5.2.35.
+[![Test Coverage](https://codeclimate.com/github/laravelgr/intro-to-laravel-testing/badges/coverage.svg)](https://codeclimate.com/github/laravelgr/intro-to-laravel-testing/coverage)
 
 ### Instructions
 
