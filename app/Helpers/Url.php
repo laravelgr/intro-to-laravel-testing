@@ -20,8 +20,10 @@ class Url
     public function getDomain()
     {
         $domainWithPath          = substr($this->url, strlen($this->getProtocol().'://'));
-        $domainSeparatorPosition = strpos($domainWithPath, '/');
-        return substr($domainWithPath, 0, $domainSeparatorPosition);
+        if ($domainSeparatorPosition = strpos($domainWithPath, '/')) {
+            return substr($domainWithPath, 0, $domainSeparatorPosition);
+        }
+        return $domainWithPath;
     }
 
     public function getPath()
