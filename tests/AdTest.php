@@ -8,7 +8,9 @@ class AdTest extends TestCase
 
     public function testItParsesText()
     {
-        $url = new Url('http://laravel.gr');
+        $url = Mockery::mock(Url::class);
+        $url->shouldReceive('getDomain')->andReturn('laravel.gr');
+
         $ad = new Ad;
         $ad->setUrl($url);
         $ad->setText('Welcome to {url:domain}');
