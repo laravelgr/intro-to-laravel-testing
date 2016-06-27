@@ -11,7 +11,8 @@ general:
 
 dependencies:
   pre:
-    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini # enables xdebug needed for code coverage
+    # enables xdebug needed for code coverage
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini 
   override:
     # Checks all php files within /app for syntax errors
     - tests/commands/phplint.sh
